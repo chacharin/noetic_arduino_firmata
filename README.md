@@ -16,7 +16,7 @@ cd ~/catkin_ws/src
 Clone the noetic_arduino_firmata package from GitHub:
 
 ```bash
-git clone https://github.com/chacharin/noetic_arduino_firmata.git
+git clone https://github.com/chacharin/noetic_uno_firmata.git
 ```
 This will download the package into your catkin_ws/src directory.
 
@@ -58,6 +58,6 @@ source ~/.bashrc
 Now you can run the arduino_node.py script using the following command:
 
 ```bash
-rosrun noetic_arduino_firmata arduino_node.py
+rosrun noetic_uno_firmata arduino_node.py
 ```
 This will launch the ROS node that interacts with the Arduino.
