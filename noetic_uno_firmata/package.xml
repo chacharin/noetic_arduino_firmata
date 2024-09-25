@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>noetic_uno_firmata</name>
+  <version>0.0.1</version>
+  <description>The easy way for ros noetic developer to control standard firmata on an Arduino board.</description>
+
+  <maintainer email="lertyosbordin@outlook.com">Chacharin Lertyosbordin</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>pyfirmata</depend>
+
+  <export>
+  </export>
+</package>
