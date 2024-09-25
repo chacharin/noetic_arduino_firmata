@@ -11,3 +11,12 @@ Open a terminal and navigate to the `src` directory of your existing `catkin_ws`
 
 ```bash
 cd ~/catkin_ws/src
+
+### Step 2: Clone the Repository
+
+Clone the noetic_arduino_firmata package from GitHub:
+
+```bash
+git clone https://github.com/chacharin/noetic_arduino_firmata.git
+
+This will download the package into your catkin_ws/src directory.
