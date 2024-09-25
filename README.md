@@ -95,13 +95,13 @@ You can set the pin mode (input, output, PWM, or servo) using the `pin_mode` top
 - For digital pin output:
   
   ```bash
-  rostopic pub -1 /pin_mode std_msgs/String "9,output"
+  rostopic pub -1 /pin_mode std_msgs/String "[pin],output"
   ```
 
 - For setting a digital pin as PWM:
 
   ```bash
-  rostopic pub -1 /pin_mode std_msgs/String "9,pwm"
+  rostopic pub -1 /pin_mode std_msgs/String "[pin],pwm"
   ```
 
 - For configuring a pin for a servo:
@@ -133,12 +133,14 @@ You can set the pin mode (input, output, PWM, or servo) using the `pin_mode` top
 - To control a servo by setting its angle (0 to 180 degrees):
 
   ```bash
-  rostopic pub -1 /servo_write std_msgs/String "9,45"
+  rostopic pub -1 /servo_write std_msgs/String "9,90"
   ```
 
 #### Reading Sensor Data
 
 To read input from digital or analog pins, first set the pin as an input:
+
+For a digital pin (e.g., Digital Pin 9):
 
 ```bash
 rostopic pub -1 /pin_mode std_msgs/String "9,input"
@@ -149,8 +151,18 @@ Then, use `rostopic echo` to read the values being published from the sensor on 
 ```bash
 rostopic echo /sensor_9
 ```
+For an analog pin (e.g., Analog Pin A0):
 
-Analog pins are similarly handled with their own topics (e.g., `/sensor_A0` for Analog Pin A0).
+```bash
+rostopic pub -1 /pin_mode std_msgs/String "A0,input"
+```
+Then, read the values being published from the analog sensor on Pin A0:
+
+```bash
+    rostopic echo /sensor_A0
+```
+
+Analog pins are handled similarly to digital pins, with the topic names prefixed by sensor_A for each analog pin (e.g., /sensor_A1 for Analog Pin A1, /sensor_A2 for Analog Pin A2).
 
 ### Example Usage
 
@@ -184,7 +196,7 @@ Analog pins are similarly handled with their own topics (e.g., `/sensor_A0` for 
     rostopic pub -1 /servo_write std_msgs/String "9,45"
     ```
 
-### Troubleshooting: Running on Ubuntu in VirtualBox
+## Troubleshooting: Running on Ubuntu in VirtualBox
 
 When running the `arduino_node.py` in Ubuntu inside a VirtualBox environment, you may encounter an issue where your system freezes or becomes unresponsive. This is a known problem that can occur if the USB connection between your Arduino board and the virtual machine becomes unstable during the execution of the program.
 
