@@ -98,13 +98,18 @@ source ~/.bashrc
 
 ### Step 6: Run the Node
 
-Now you can run the arduino_node.py script using the following command:
+Now you can run the arduino_node.py script.
+Before running the main script, ensure that roscore is running. You can start it with the following command:
+
+```bash
+roscore
+```
+Once roscore is running, open a new terminal and execute the arduino_node.py script using the following command:
 
 ```bash
 rosrun noetic_uno_firmata arduino_node.py
 ```
 This will launch the ROS node that interacts with the Arduino.
-
 
 
 ## How to Use
