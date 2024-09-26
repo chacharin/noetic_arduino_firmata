@@ -107,13 +107,13 @@ You can set the pin mode (input, output, PWM, or servo) using the `pin_mode` top
 - For configuring a pin for a servo:
 
   ```bash
-  rostopic pub -1 /pin_mode std_msgs/String "9,servo"
+  rostopic pub -1 /pin_mode std_msgs/String "[pin],servo"
   ```
 
 - For setting a pin as input (e.g., to read sensor data):
 
   ```bash
-  rostopic pub -1 /pin_mode std_msgs/String "9,input"
+  rostopic pub -1 /pin_mode std_msgs/String "[pin],input"
   ```
 
 #### Write to Digital or Analog Pins
@@ -121,19 +121,19 @@ You can set the pin mode (input, output, PWM, or servo) using the `pin_mode` top
 - To write a digital value to a pin (e.g., turning on an LED):
 
   ```bash
-  rostopic pub -1 /digital_write std_msgs/String "9,1"
+  rostopic pub -1 /digital_write std_msgs/String "[pin],1"
   ```
 
 - To write a PWM value to a pin (0.0 to 1.0):
 
   ```bash
-  rostopic pub -1 /analog_write std_msgs/String "9,0.5"
+  rostopic pub -1 /analog_write std_msgs/String "[pin],0.5"
   ```
 
 - To control a servo by setting its angle (0 to 180 degrees):
 
   ```bash
-  rostopic pub -1 /servo_write std_msgs/String "9,90"
+  rostopic pub -1 /servo_write std_msgs/String "[pin],90"
   ```
 
 #### Reading Sensor Data
@@ -215,3 +215,8 @@ If you accidentally press `Ctrl+C` without unplugging the Arduino, and your syst
 - **Unplug the USB cable**: This should immediately allow the virtual machine to recover from the freeze or lag.
 - If the system is still unresponsive, **restart the VirtualBox machine** to regain functionality.
 
+## Limitation: Pin Mode Switching Between Servo and PWM is Not Supported
+
+When using the Servo mode on a pin in Firmata, the Servo Library automatically attaches that pin to control the servo motor. However, there is a known limitation: **StandardFirmata** does not provide an algorithm or mechanism to detach the pin from Servo mode once it is attached. This limitation prevents switching the same pin from Servo mode to PWM (or any other mode) dynamically during runtime.
+
+If you attempt to set the pin to PWM after it has been configured for Servo, the pin will remain in Servo mode, and the PWM functionality will not work as expected. The current workaround to switch a pin from Servo to PWM is to reset the Arduino board and then reconnect with "arduino_node.py" to reconfigure the pin mode.
