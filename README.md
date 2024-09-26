@@ -62,9 +62,15 @@ This will download the package into your catkin_ws/src directory.
 Ensure that all necessary dependencies are installed by running the following command:
 
 ```bash
-sudo apt-get install ros-noetic-rospy ros-noetic-std-msgs python3-pyfirmata
+sudo apt-get install ros-noetic-rospy ros-noetic-std-msgs 
 ```
-This installs the required ROS packages and the Python pyfirmata library.
+This installs the required ROS packages 
+
+```bash
+sudo apt-get install python3-pip
+sudo pip3 install pyfirmata
+```
+This installs Python pyfirmata library.
 
 ### Step 4: Build the Workspace
 Go back to your ROS workspace and build the package:
