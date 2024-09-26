@@ -94,47 +94,47 @@ You can set the pin mode (input, output, PWM, or servo) using the `pin_mode` top
 
 - For digital pin output:
   
-  ```bash
-  rostopic pub -1 /pin_mode std_msgs/String "[pin],output"
-  ```
+```bash
+rostopic pub -1 /pin_mode std_msgs/String "[pin],output"
+```
 
 - For setting a digital pin as PWM:
 
-  ```bash
-  rostopic pub -1 /pin_mode std_msgs/String "[pin],pwm"
-  ```
+```bash
+rostopic pub -1 /pin_mode std_msgs/String "[pin],pwm"
+```
 
 - For configuring a pin for a servo:
 
-  ```bash
-  rostopic pub -1 /pin_mode std_msgs/String "[pin],servo"
-  ```
+```bash
+rostopic pub -1 /pin_mode std_msgs/String "[pin],servo"
+```
 
 - For setting a pin as input (e.g., to read sensor data):
 
-  ```bash
-  rostopic pub -1 /pin_mode std_msgs/String "[pin],input"
-  ```
+```bash
+rostopic pub -1 /pin_mode std_msgs/String "[pin],input"
+```
 
 #### Write to Digital or Analog Pins
 
 - To write a digital value to a pin (e.g., turning on an LED):
 
-  ```bash
-  rostopic pub -1 /digital_write std_msgs/String "[pin],1"
-  ```
+```bash
+rostopic pub -1 /digital_write std_msgs/String "[pin],1"
+```
 
 - To write a PWM value to a pin (0.0 to 1.0):
 
-  ```bash
-  rostopic pub -1 /analog_write std_msgs/String "[pin],0.5"
-  ```
+```bash
+rostopic pub -1 /analog_write std_msgs/String "[pin],0.5"
+```
 
 - To control a servo by setting its angle (0 to 180 degrees):
 
-  ```bash
-  rostopic pub -1 /servo_write std_msgs/String "[pin],90"
-  ```
+```bash
+rostopic pub -1 /servo_write std_msgs/String "[pin],90"
+```
 
 #### Reading Sensor Data
 
@@ -153,70 +153,70 @@ rostopic echo /sensor_9
 ```
 For an analog pin (e.g., Analog Pin A0):
 
-```bash
-rostopic pub -1 /pin_mode std_msgs/String "A0,input"
-```
+  ```bash
+  rostopic pub -1 /pin_mode std_msgs/String "A0,input"
+  ```
 Then, read the values being published from the analog sensor on Pin A0:
 
-```bash
-    rostopic echo /sensor_A0
-```
+  ```bash
+  rostopic echo /sensor_A0
+  ```
 
 Analog pins are handled similarly to digital pins, with the topic names prefixed by sensor_A for each analog pin (e.g., /sensor_A1 for Analog Pin A1, /sensor_A2 for Analog Pin A2).
 
 ### Example Usage
 
-1. Set pin 9 to output mode:
+Set pin 9 to output mode:
 
-    ```bash
-    rostopic pub -1 /pin_mode std_msgs/String "9,output"
-    ```
+  ```bash
+  rostopic pub -1 /pin_mode std_msgs/String "9,output"
+  ```
 
-2. Turn on a digital pin 9 (assuming an LED is connected):
+Turn on a digital pin 9 (assuming an LED is connected):
 
-    ```bash
-    rostopic pub -1 /digital_write std_msgs/String "9,1"
-    ```
+  ```bash
+  rostopic pub -1 /digital_write std_msgs/String "9,1"
+  ```
 
-3. Set pin 9 to PWM mode:
+Set pin 9 to PWM mode:
 
-    ```bash
-    rostopic pub -1 /pin_mode std_msgs/String "9,pwm"
-    ```
+  ```bash
+  rostopic pub -1 /pin_mode std_msgs/String "9,pwm"
+  ```
 
-4. Write a PWM value of 50% duty cycle to pin 9:
+Write a PWM value of 50% duty cycle to pin 9:
 
-    ```bash
-    rostopic pub -1 /analog_write std_msgs/String "9,0.5"
-    ```
+  ```bash
+  rostopic pub -1 /analog_write std_msgs/String "9,0.5"
+  ```
 
-5. Configure pin 9 as a servo and set the angle to 45 degrees:
+Configure pin 9 as a servo and set the angle to 45 degrees:
 
-    ```bash
-    rostopic pub -1 /servo_write std_msgs/String "9,45"
-    ```
+  ```bash
+  rostopic pub -1 /servo_write std_msgs/String "9,45"
+  ```
 
 ## Troubleshooting: Running on Ubuntu in VirtualBox
 
-When running the `arduino_node.py` in Ubuntu inside a VirtualBox environment, you may encounter an issue where your system freezes or becomes unresponsive. This is a known problem that can occur if the USB connection between your Arduino board and the virtual machine becomes unstable during the execution of the program.
+  When running the `arduino_node.py` in Ubuntu inside a VirtualBox environment, you may encounter an issue where your system freezes or becomes unresponsive. This is a known problem that can occur if the USB connection between your Arduino board and the virtual machine becomes unstable during the execution of the program.
 
-#### Solution:
+### Solution:
 
-To avoid this issue, follow these steps when terminating the node:
-
-1. **Unplug the USB cable** that connects your Arduino to your computer **before** pressing `Ctrl+C` to terminate the program.
-
-   This ensures that the system properly disconnects from the USB device, preventing any hangups or freezing.
-
-2. After the USB is unplugged, you can safely press `Ctrl+C` in the terminal to stop the ROS node.
-
-If you accidentally press `Ctrl+C` without unplugging the Arduino, and your system freezes, follow these steps to recover:
-
-- **Unplug the USB cable**: This should immediately allow the virtual machine to recover from the freeze or lag.
-- If the system is still unresponsive, **restart the VirtualBox machine** to regain functionality.
+  To avoid this issue, follow these steps when terminating the node:
+  
+  1. **Unplug the USB cable** that connects your Arduino to your computer **before** pressing `Ctrl+C` to terminate the program.
+  
+     This ensures that the system properly disconnects from the USB device, preventing any hangups or freezing.
+  
+  2. After the USB is unplugged, you can safely press `Ctrl+C` in the terminal to stop the ROS node.
+  
+  If you accidentally press `Ctrl+C` without unplugging the Arduino, and your system freezes, follow these steps to recover:
+  
+  - **Unplug the USB cable**: This should immediately allow the virtual machine to recover from the freeze or lag.
+  - If the system is still unresponsive, **restart the VirtualBox machine** to regain functionality.
 
 ## Limitation: Pin Mode Switching Between Servo and PWM is Not Supported
 
-When using the Servo mode on a pin in Firmata, the Servo Library automatically attaches that pin to control the servo motor. However, there is a known limitation: **StandardFirmata** does not provide an algorithm or mechanism to detach the pin from Servo mode once it is attached. This limitation prevents switching the same pin from Servo mode to PWM (or any other mode) dynamically during runtime.
-
-If you attempt to set the pin to PWM after it has been configured for Servo, the pin will remain in Servo mode, and the PWM functionality will not work as expected. The current workaround to switch a pin from Servo to PWM is to reset the Arduino board and then reconnect with "arduino_node.py" to reconfigure the pin mode.
+  When using the Servo mode on a pin in Firmata, the Servo Library automatically attaches that pin to control the servo motor. However, there is a known limitation: **StandardFirmata** does not provide an algorithm or mechanism to detach the pin from Servo mode once it is attached. This limitation prevents switching the same pin from Servo mode to PWM (or any other mode) dynamically during runtime.
+  
+  If you attempt to set the pin to PWM after it has been configured for Servo, the pin will remain in Servo mode, and the PWM functionality will not work as expected. The current workaround to switch a pin from Servo to PWM is to reset the Arduino board and then reconnect with `arduino_node.py` to reconfigure the pin mode.
