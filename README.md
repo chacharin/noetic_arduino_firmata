@@ -3,6 +3,36 @@ The easy way for ros noetic developer to control standard firmata on an Arduino 
 This ROS Noetic package allows interaction with an Arduino board using the standard Firmata protocol. 
 Below are the detailed steps to set up the package on your computer.
 
+## Requirements
+Before proceeding with the installation, make sure you have the following requirements prepared:
+
+1. **ROS Noetic**: Ensure you have ROS Noetic installed and properly configured on your system. 
+Follow the official [ROS Noetic installation guide](http://wiki.ros.org/noetic/Installation) if you haven't set it up yet.
+
+2. **Catkin Workspace**: You should have a `catkin_ws` workspace already set up. 
+If you don't have one, you can create it using the following commands:
+
+    ```bash
+    mkdir -p ~/catkin_ws/src
+    cd ~/catkin_ws/
+    catkin_make
+    ```
+
+3. **Python 3**: This package is compatible with Python 3. Ensure that Python 3 is installed on your system.
+   
+4. **Arduino Board**: You will need a compatible Arduino UNO board.
+   
+5. **USB Cable**: Ensure that you have a USB cable to connect the Arduino board to your computer.
+   
+6. **VirtualBox Users (if applicable)**: If you are using Ubuntu in a VirtualBox environment, be aware of potential USB connection issues.
+    
+Refer to the **Troubleshooting** section at the end of this guide for solutions to avoid system freezes.
+7.**Arduino IDE & Firmata**: Install the [Arduino IDE](https://www.arduino.cc/en/software) and upload the **StandardFirmata** sketch to your Arduino board. 
+You can find the StandardFirmata sketch in the Arduino IDE under:
+   `File > Examples > Firmata > StandardFirmata`.
+
+Once you have the above prerequisites in place, you can proceed with the package installation.
+
 ## Installation Instructions
 
 ### Step 1: Navigate to the `src` Directory of Your Workspace
