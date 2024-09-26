@@ -6,10 +6,13 @@ Below are the detailed steps to set up the package on your computer.
 ## Requirements
 Before proceeding with the installation, make sure you have the following requirements prepared:
 
-1. **ROS Noetic**: Ensure you have ROS Noetic installed and properly configured on your system. 
+1. **Ubuntu 20.04**: This package is compatible with Ubuntu 20.04. Ensure that you are running this version of Ubuntu, as ROS Noetic is designed to work optimally on this operating system.
+   - **VirtualBox (if applicable)**: If you are using Ubuntu in a VirtualBox environment, you may encounter USB connection issues that could cause system freezes. Refer to the **Troubleshooting** section at the end of this guide for solutions on how to avoid such problems.
+
+2. **ROS Noetic (Desktop Version)**: Ensure you have ROS Noetic `desktop version` installed and properly configured on your Ubuntu system. 
 Follow the official [ROS Noetic installation guide](http://wiki.ros.org/noetic/Installation) if you haven't set it up yet.
 
-2. **Catkin Workspace**: You should have a `catkin_ws` workspace already set up. 
+3. **Catkin Workspace**: You should have a `catkin_ws` workspace already set up. 
 If you don't have one, you can create it using the following commands:
 
     ```bash
@@ -18,16 +21,13 @@ If you don't have one, you can create it using the following commands:
     catkin_make
     ```
 
-3. **Python 3**: This package is compatible with Python 3. Ensure that Python 3 is installed on your system.
-   
-4. **Arduino Board**: You will need a compatible Arduino UNO board.
-   
-5. **USB Cable**: Ensure that you have a USB cable to connect the Arduino board to your computer.
-   
-6. **VirtualBox Users (if applicable)**: If you are using Ubuntu in a VirtualBox environment, be aware of potential USB connection issues.
-    
-Refer to the **Troubleshooting** section at the end of this guide for solutions to avoid system freezes.
-7.**Arduino IDE & Firmata**: Install the [Arduino IDE](https://www.arduino.cc/en/software) and upload the **StandardFirmata** sketch to your Arduino board. 
+4. **Python 3**: This package is compatible with Python 3. Ensure that Python 3 is installed on your system.
+
+5. **Arduino UNO Board**: You will need a compatible Arduino UNO board.
+
+6. **USB Cable**: Ensure that you have a USB cable to connect the Arduino board to your computer.
+
+7. **Arduino IDE & Firmata**: Install the [Arduino IDE](https://www.arduino.cc/en/software) and upload the **StandardFirmata** sketch to your Arduino board. 
 You can find the StandardFirmata sketch in the Arduino IDE under:
    `File > Examples > Firmata > StandardFirmata`.
 
