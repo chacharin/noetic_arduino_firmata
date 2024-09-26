@@ -9,7 +9,7 @@ Before proceeding with the installation, make sure you have the following requir
 1. **Ubuntu 20.04**: This package is compatible with Ubuntu 20.04. Ensure that you are running this version of Ubuntu, as ROS Noetic is designed to work optimally on this operating system.
    - **VirtualBox (if applicable)**: If you are using Ubuntu in a VirtualBox environment, you may encounter USB connection issues that could cause system freezes. Refer to the **Troubleshooting** section at the end of this guide for solutions on how to avoid such problems.
 
-2. **ROS Noetic (Desktop Version)**: Ensure you have ROS Noetic `desktop version` installed and properly configured on your Ubuntu system. 
+2. **ROS Noetic (Desktop Version)**: Ensure you have ROS Noetic installed and properly configured on your Ubuntu system. 
 Follow the official [ROS Noetic installation guide](http://wiki.ros.org/noetic/Installation) if you haven't set it up yet.
 
 3. **Catkin Workspace**: You should have a `catkin_ws` workspace already set up. 
