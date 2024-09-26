@@ -22,6 +22,13 @@ If you don't have one, you can create it using the following commands:
     ```
 
 4. **Python 3**: This package is compatible with Python 3. Ensure that Python 3 is installed on your system.
+   - **Note**: In most cases, Python 3 is installed by default along with ROS Noetic. However, you can verify the installation by running the following command:
+
+    ```bash
+    python3 --version
+    ```
+
+   This will display the installed version of Python 3.8
 
 5. **Arduino UNO Board**: You will need a compatible Arduino UNO board.
 
