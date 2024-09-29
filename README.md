@@ -122,7 +122,7 @@ Connect your Arduino to your computer. To start the node, specify the correct po
 By default, the port is set to `/dev/ttyUSB0`, but you can change this to match your setup (e.g., `/dev/ttyACM0`):
 
 ```bash
-rosrun noetic_arduino_firmata arduino_node.py _port:=/dev/ttyACM0
+rosrun noetic_uno_firmata arduino_node.py _port:=/dev/ttyACM0
 ```
 
 Replace `/dev/ttyACM0` with the correct serial port for your Arduino.
