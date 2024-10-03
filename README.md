@@ -238,6 +238,12 @@ Write a PWM value of 50% duty cycle to pin 9:
   rostopic pub -1 /analog_write std_msgs/String "9,0.5"
   ```
 
+Set pin 9 to Servo mode:
+
+  ```bash
+  rostopic pub -1 /pin_mode std_msgs/String "9,pwm"
+  ```
+
 Configure pin 9 as a servo and set the angle to 45 degrees:
 
   ```bash
