@@ -3,6 +3,8 @@ The easy way for ros noetic developer to control standard firmata on an Arduino 
 This ROS Noetic package allows interaction with an Arduino board using the standard Firmata protocol. 
 Below are the detailed steps to set up the package on your computer.
 
+Demonstration: https://www.youtube.com/watch?v=Ckr2QLgq_Ls
+
 ## Requirements
 Before proceeding with the installation, make sure you have the following requirements prepared:
 
@@ -241,8 +243,6 @@ Configure pin 9 as a servo and set the angle to 45 degrees:
   ```bash
   rostopic pub -1 /servo_write std_msgs/String "9,45"
   ```
-[![Video Title](https://img.youtube.com/vi/Ckr2QLgq_Ls/0.jpg)](https://www.youtube.com/watch?v=Ckr2QLgq_Ls)
-
 ## Troubleshooting: Running on Ubuntu in VirtualBox
 
   When running the `arduino_node.py` in Ubuntu inside a VirtualBox environment, you may encounter an issue where your system freezes or becomes unresponsive. This is a known problem that can occur if the USB connection between your Arduino board and the virtual machine becomes unstable during the execution of the program.
