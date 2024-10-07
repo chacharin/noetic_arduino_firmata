@@ -241,6 +241,7 @@ Configure pin 9 as a servo and set the angle to 45 degrees:
   ```bash
   rostopic pub -1 /servo_write std_msgs/String "9,45"
   ```
+[![Video Title](https://img.youtube.com/vi/Ckr2QLgq_Ls/0.jpg)](https://www.youtube.com/watch?v=Ckr2QLgq_Ls)
 
 ## Troubleshooting: Running on Ubuntu in VirtualBox
 
